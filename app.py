@@ -1,6 +1,5 @@
 import json
 import os
-import socket
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 # Maritime injects PORT at runtime; default to 8080 for local runs.
@@ -13,7 +12,7 @@ class Handler(BaseHTTPRequestHandler):
             {
                 "app": "hello-web",
                 "message": "Hello from a custom agent on Maritime",
-                "host": socket.gethostname(),
+                "listening_on": PORT,
                 "path": self.path,
             },
             indent=2,
